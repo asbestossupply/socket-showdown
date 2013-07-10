@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "socket.io": "0.9.16",
+    "redis": "0.8.4",
+    "socket.io-client": "0.9.16"
+  }
+}

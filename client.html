@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="./jquery-1.10.2.min.js"></script>
+    <script>
+      $(function() {
+        $('#btnWatch').click(function(e) {
+          e.preventDefault();
+          var library = $(':radio[name=library]:checked').val();
+          $('#clientFrame').attr('src', './' + library + '/client.html');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="server">Server:</label> <input type="text" name="server" value="http://localhost:8000" size="100" disabled="disabled"/>
+      </div>
+      <div>
+        <label>Library</label>
+        <input type="radio" name="library" value="socketio" checked="checked" /> socket.io
+        <input type="radio" name="library" value="engineio" /> engine.io
+        <input type="radio" name="library" value="sockjs" /> sockjs
+      </div>
+      <div>
+        <input type="button" value="Watch" id="btnWatch" />
+      </div>
+      <iframe id="clientFrame" width="800px" height="600px"></iframe>
+    </form>
+  </body>
+</html>
