@@ -33,6 +33,11 @@ redis.del(delays_key);
 var library_path = path.join(path.dirname(process.argv[1]), argv.library);
 
 var main = function() {
+  // start server
+  var server = child_process.spawn('node', [path.join(library_path, 'server.js')]);
+  children.push(server);
+
+  // and start spawning clients
   var client_path = path.join(library_path, 'client.js');
   var i = 0;
   var spawnChild = function() {
